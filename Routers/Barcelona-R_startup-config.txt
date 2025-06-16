@@ -1,0 +1,86 @@
+!
+version 12.2
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname Router
+!
+!
+!
+!
+!
+!
+!
+!
+no ip cef
+no ipv6 cef
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface FastEthernet0/0
+ ip address 223.177.137.1 255.255.255.0
+ duplex auto
+ speed auto
+!
+interface FastEthernet1/0
+ bandwidth 160000
+ ip address 200.4.0.2 255.255.255.0
+!
+interface FastEthernet2/0
+ bandwidth 130000
+ ip address 200.5.0.1 255.255.255.0
+!
+interface FastEthernet3/0
+ bandwidth 110000
+ ip address 200.6.0.1 255.255.255.0
+!
+interface FastEthernet4/0
+ bandwidth 90000
+ ip address 200.7.0.1 255.255.255.0
+!
+router eigrp 99
+ network 200.4.0.0
+ network 223.177.137.0
+ network 200.5.0.0
+ network 200.6.0.0
+ network 200.7.0.0
+ auto-summary
+!
+ip classless
+!
+ip flow-export version 9
+!
+!
+!
+!
+!
+!
+!
+!
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ login
+!
+!
+!
+end
+
